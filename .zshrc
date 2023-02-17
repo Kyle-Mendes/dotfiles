@@ -1,15 +1,18 @@
+export TERM=ansi
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8'
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 . /Users/$USER/.nix-profile/etc/profile.d/nix.sh
 . /usr/local/opt/asdf/libexec/asdf.sh
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kylemendes/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Nvim Config Dir
 export XDG_CONFIG_HOME=/Users/kylemendes/.config
 alias nvim-config="nvim ~/.config/nvim/init.vim"
-alias love=/Applications/love.app/Contents/MacOS/love
+# alias love=/Applications/love.app/Contents/MacOS/love
 
 export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 
