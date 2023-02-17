@@ -124,7 +124,6 @@ return {
     -- Pets
     {
         "giusgad/pets.nvim",
-        dev = true,
         dependencies = { "edluffy/hologram.nvim", "MunifTanjim/nui.nvim", }
     },
 
