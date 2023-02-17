@@ -1,0 +1,21 @@
+command_timeout = 1000
+right_format = "$time"
+
+[directory]
+truncation_length = 3
+style = "bold cyan italic"
+
+[cmd_duration]
+disabled = true
+
+[time]
+disabled = false
+use_12hr = true
+format = '$time($style) '
+style = "normal grey"
+
+[git_branch]
+style = "bold purple italic"
+
+[gcloud]
+disabled = true
