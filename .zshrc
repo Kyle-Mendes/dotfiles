@@ -10,7 +10,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8'
 export ZSH="$HOME/.oh-my-zsh"
 
 # Nvim Config Dir
-export XDG_CONFIG_HOME=/Users/kylemendes/.config
+export XDG_CONFIG_HOME="$HOME/.config"
 alias nvim-config="nvim ~/.config/nvim/init.vim"
 # alias love=/Applications/love.app/Contents/MacOS/love
 
