@@ -111,7 +111,7 @@ return {
         event = "UiEnter",
         config = function()
             require("heirline").setup({
-            })
+        })
         end
     },
 
@@ -124,7 +124,11 @@ return {
     -- Pets
     {
         "giusgad/pets.nvim",
+        -- dev = true,
         dependencies = { "edluffy/hologram.nvim", "MunifTanjim/nui.nvim", }
     },
+
+    -- Lush
+    { "rktjmp/lush.nvim" },
 
 }
