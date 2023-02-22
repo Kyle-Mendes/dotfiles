@@ -31,6 +31,7 @@
   "nvim-notify": { "branch": "master", "commit": "bdd647f61a05c9b8a57c83b78341a0690e9c29d7" },
   "nvim-treesitter": { "branch": "master", "commit": "17d7cf6f4b4057a949e86df6fbc2e271ba788823" },
   "nvim-web-devicons": { "branch": "master", "commit": "53faf5e6d38cb3ca5c7487421524fa2b187b15b2" },
+  "pets.nvim": { "branch": "main", "commit": "a1308c263311e12b4ded18515497e6a4d26de4b7" },
   "playground": { "branch": "master", "commit": "4044b53c4d4fcd7a78eae20b8627f78ce7dc6f56" },
   "plenary.nvim": { "branch": "master", "commit": "9a0d3bf7b832818c042aaf30f692b081ddd58bd9" },
   "rose-pine": { "branch": "main", "commit": "845a6ad5443e3559dde42910c4523a5835c9233b" },

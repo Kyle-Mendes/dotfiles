@@ -1,4 +1,13 @@
 return {
+    { 
+        "fuchsia-studios/acorn",
+        dev = true,
+        -- config = function()
+        --     require("acorn").setup({
+        --     })
+        --     vim.cmd("colorscheme acorn")
+        -- end
+    },
     { "machakann/vim-sandwich" },
 
     -- Noice
