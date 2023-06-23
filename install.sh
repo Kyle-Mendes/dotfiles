@@ -10,7 +10,8 @@ if [[ $(uname) == "Darwin" ]]; then
   brew install \
     neovim \
     httpie \
-    tree 
+    tree \
+    rip-grep
 else
   sudo add-apt-repository -y ppa:neovim-ppa/unstable
   sudo apt update
@@ -18,10 +19,11 @@ else
     neovim \
     httpie \
     tree
+  nix-env --install ripgrep
 fi
 
 if ! which starship; then
-  curl -sS https://starship.rs/install.sh | sh
+  sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
 fi
 
 if [[ ! -e $HOME/.oh-my-zsh ]]; then

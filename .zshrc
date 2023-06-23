@@ -1,5 +1,4 @@
-export TERM=ansi
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8'
+export TERM=xterm-kitty
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -155,3 +154,4 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 source ~/.nvm/nvm.sh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8,italic'
