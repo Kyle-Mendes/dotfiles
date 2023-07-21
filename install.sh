@@ -38,8 +38,12 @@ fi
 DOTFILES=$HOME/dotfiles
 
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES/.zshprofile" "$HOME/.zshprofile"
+ln -sf "$DOTFILES/.clangd" "$HOME/.clangd"
 ln -sf "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
 ln -sf "$DOTFILES/.config/kitty" "$HOME/.config/kitty"
 ln -sf "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
+
+ln -sf "$DOTFILES/zls.json" "$HOME/zls.json"
 
 # source ~/.zshrc

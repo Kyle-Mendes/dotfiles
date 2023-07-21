@@ -9,6 +9,7 @@ lsp.ensure_installed({
 })
 
 require 'lspconfig'.gdscript.setup {} -- Enable GDScript
+require 'lspconfig'.clangd.setup {} -- Enable clangd 
 
 local cmp = require("cmp")
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -35,6 +36,11 @@ lsp.on_attach(function(client, bufnr) -- Only apply to the buffer if it has LSP
     vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>lrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = "*.cpp,*.h",
+        callback = function() vim.lsp.buf.format({ timeout_ms = 100 }) end
+    })
 end)
 
 lsp.configure("pyright", {

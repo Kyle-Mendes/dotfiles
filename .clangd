@@ -1,0 +1,32 @@
+ComplieFlags: 
+	Add:
+	- -I/usr/local/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin21/12/../../../../../../include/c++/12
+	- -I/usr/local/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin21/12/../../../../../../include/c++/12/x86_64-apple-darwin21
+	- -I/usr/local/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin21/12/../../../../../../include/c++/12/backward
+	- -I/usr/local/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin21/12/include
+	- -I/usr/local/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/x86_64-apple-darwin21/12/include-fixed
+	- -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/include
+	- -I/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks
+
+	- -I/usr/local/include
+	- -I/Applications/Xcode-14.2.0.14C18.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1
+	- -I/Applications/Xcode-14.2.0.14C18.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include
+	- -I/Applications/Xcode-14.2.0.14C18.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
+	- -I/Applications/Xcode-14.2.0.14C18.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+	- -I/Applications/Xcode-14.2.0.14C18.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
+
+	- -lSDL2
+
+	- -DLOCAL
+  - -Wall
+  - -O2
+  - -Wextra
+  - -Wshadow
+  - -Wconversion
+  - -Wfloat-equal
+  - -Wno-unused-const-variable
+  - -Wno-sign-conversion
+  - -std=c++17
+
+Index:
+  Background: Skip

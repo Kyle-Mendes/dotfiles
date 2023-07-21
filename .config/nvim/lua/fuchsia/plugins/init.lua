@@ -1,4 +1,5 @@
 return {
+		{ 'nvim-lua/plenary.nvim' },
     { 
         "fuchsia-studios/acorn",
         dev = true,
@@ -8,6 +9,14 @@ return {
         --     vim.cmd("colorscheme acorn")
         -- end
     },
+    -- {
+    --     "fuchsia-studios/tododo",
+    --     dev = true,
+		-- 		dependencis = {
+		-- 			'nvim-lua/plenary.nvim'
+		-- 		},
+    --     config = require('tododo').setup({})
+    -- },
     { "machakann/vim-sandwich" },
 
     -- Noice
@@ -139,5 +148,8 @@ return {
 
     -- Lush
     { "rktjmp/lush.nvim" },
+
+		-- Copilor
+		{ "github/copilot.vim" },
 
 }

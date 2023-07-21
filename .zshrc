@@ -17,9 +17,32 @@ export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$PATH:/Users/kylemendes/Projects/discord/discord/.local/bin"
+# export PATH="$REPO_ROOT/.local/bin:$PATH"
 
-# Custome elixir work
+# Custom elixir work
 export PATH="$PATH:/usr/local/Cellar/elixir/1.13.2/bin"
+
+# cpp stuff
+export PATH="$PATH:/usr/local/Cellar/sdl2/2.26.3/lib"
+# LIBRARY_PATH="/Library/Frameworks/SDL2.framework/:${LIBRARY_PATH}"
+# export LIBRARY_PATH
+#
+# CPLUS_INCLUDE_PATH="/Library/Frameworks/SDL2.framework/Headers/:$CPLUS_INCLUDE_PATH"
+# export CPLUS_INCLUDE_PATH
+export C_INCLUDE_PATH=/usr/local/include:$C_INCLUDE_PATH
+export C_INCLUDE_PATH=/usr/local/include/SDL2/SDL.h:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/usr/local/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/usr/local/include/SDL2/SDL.h:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=/usr/local/include:$LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/include/SDL2/SDL.h:$LIBRARY_PATH
+
+export C_INCLUDE_PATH=/usr/local/include/entt:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/usr/local/include/entt:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=/usr/local/include/entt:$LIBRARY_PATH
+
+alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
+alias nw="/Users/kylemendes/Downloads/nwjs-sdk-v0.74.0-osx-x64/nwjs.app/Contents/MacOS/nwjs"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -154,4 +177,24 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 source ~/.nvm/nvm.sh
+<<<<<<< Updated upstream
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8,italic'
+=======
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/kylemendes/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/kylemendes/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/kylemendes/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/kylemendes/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
+# export PATH="/usr/local/opt/mongodb-community@5.0/bin:$PATH"
+>>>>>>> Stashed changes
