@@ -10,7 +10,7 @@ require('noice').setup({
 
 	cmdline = {
 		format = {
-			cmdline = {icon="🌸"}
+			cmdline = {icon=">"}
 		},
 	},
 
@@ -47,6 +47,14 @@ require('noice').setup({
         },
         opts = { skip = true },
       },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+          find = "lines changed", -- filter out written
+        },
+        opts = { skip = true },
+      },
     },
 
 		views = {
@@ -63,12 +71,12 @@ require('noice').setup({
       popupmenu = {
         relative = "editor",
         position = {
-          row = 8,
+          row = 10,
           col = "50%",
         },
         size = {
           width = 60,
-          height = 10,
+          height = 16,
         },
         border = {
           style = "rounded",

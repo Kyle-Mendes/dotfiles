@@ -1,10 +1,11 @@
 local lsp = require("lsp-zero")
+local lspconfig = require('lspconfig')
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
     "tsserver",
-    "lua-language-server",
+    "lua_ls",
     "pyright",
 })
 
@@ -38,9 +39,14 @@ lsp.on_attach(function(client, bufnr) -- Only apply to the buffer if it has LSP
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = "*.cpp,*.h",
+        pattern = "*.cpp,*.h,*.svelte,*.c",
         callback = function() vim.lsp.buf.format({ timeout_ms = 100 }) end
     })
+
+    -- vim.api.nvim_create_autocmd('BufWritePre', {
+    --     pattern = "*.ts,*.tsx,*.js,*.jsx",
+    --     callback = function() vim.lsp.buf.format({ timeout_ms = 200 }) end
+    -- })
 end)
 
 lsp.configure("pyright", {
@@ -55,7 +61,7 @@ lsp.configure("pyright", {
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -64,6 +70,30 @@ lsp.configure('lua-language-server', {
         }
     }
 })
+
+
+lspconfig.eslint.setup({
+    on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
+    end,
+})
+
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = 'utf-16'
+
+lspconfig.clangd.setup{
+    capabilities = cmp_nvim_lsp.default_capabilities(),
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+    },
+}
+
+
 lsp.setup()
 
 vim.diagnostic.config({

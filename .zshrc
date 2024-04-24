@@ -3,7 +3,6 @@ export TERM=xterm-kitty
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 . /Users/$USER/.nix-profile/etc/profile.d/nix.sh
-. /usr/local/opt/asdf/libexec/asdf.sh
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -30,16 +29,23 @@ export PATH="$PATH:/usr/local/Cellar/sdl2/2.26.3/lib"
 #
 # CPLUS_INCLUDE_PATH="/Library/Frameworks/SDL2.framework/Headers/:$CPLUS_INCLUDE_PATH"
 # export CPLUS_INCLUDE_PATH
-export C_INCLUDE_PATH=/usr/local/include:$C_INCLUDE_PATH
-export C_INCLUDE_PATH=/usr/local/include/SDL2/SDL.h:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/usr/local/include:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/usr/local/include/SDL2/SDL.h:$CPLUS_INCLUDE_PATH
-export LIBRARY_PATH=/usr/local/include:$LIBRARY_PATH
-export LIBRARY_PATH=/usr/local/include/SDL2/SDL.h:$LIBRARY_PATH
+export C_PATH=/opt/homebrew/include:$C_INCLUDE_PATH
+export C_INCLUDE_PATH=/opt/homebrew/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/opt/homebrew/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=/opt/homebrew/lib:$LIBRARY_PATH
+export PKG_CONFIG_PATH=/opt/homebrew/include:$PKG_CONFIG_PATH
 
-export C_INCLUDE_PATH=/usr/local/include/entt:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/usr/local/include/entt:$CPLUS_INCLUDE_PATH
-export LIBRARY_PATH=/usr/local/include/entt:$LIBRARY_PATH
+# # entt
+# export C_INCLUDE_PATH=/opt/homebrew/include/entt:$C_INCLUDE_PATH
+# export CPLUS_INCLUDE_PATH=/opt/homebrew/include/entt:$CPLUS_INCLUDE_PATH
+# export LIBRARY_PATH=/opt/homebrew/include/entt:$LIBRARY_PATH
+# export PKG_CONFIG_PATH=/opt/homebrew/include/entt:$PKG_CONFIG_PATH
+#
+# # raylib
+# export C_INCLUDE_PATH=/opt/homebrew/include/raylib:$C_INCLUDE_PATH
+# export CPLUS_INCLUDE_PATH=/opt/homebrew/include/raylib:$CPLUS_INCLUDE_PATH
+# export LIBRARY_PATH=/opt/homebrew/include/raylib:$LIBRARY_PATH
+# export PKG_CONFIG_PATH=/opt/homebrew/include/raylib:$PKG_CONFIG_PATH
 
 alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
 alias nw="/Users/kylemendes/Downloads/nwjs-sdk-v0.74.0-osx-x64/nwjs.app/Contents/MacOS/nwjs"
@@ -169,32 +175,7 @@ fi
 # Bun
 export BUN_INSTALL="/Users/kylemendes/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-source ~/.nvm/nvm.sh
-<<<<<<< Updated upstream
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8,italic'
-=======
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/kylemendes/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/kylemendes/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/kylemendes/opt/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/kylemendes/opt/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-
-# export PATH="/usr/local/opt/mongodb-community@5.0/bin:$PATH"
->>>>>>> Stashed changes
+alias love="/Applications/love.app/Contents/MacOS/love"

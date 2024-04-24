@@ -5,13 +5,15 @@ cd $HOME
 if [[ $(uname) == "Darwin" ]]; then
   if ! which brew; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/kylemendes/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 
   brew install \
     neovim \
     httpie \
     tree \
-    rip-grep
+    ripgrep
 else
   sudo add-apt-repository -y ppa:neovim-ppa/unstable
   sudo apt update

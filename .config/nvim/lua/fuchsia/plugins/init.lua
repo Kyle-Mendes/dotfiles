@@ -1,6 +1,6 @@
 return {
 		{ 'nvim-lua/plenary.nvim' },
-    { 
+    {
         "fuchsia-studios/acorn",
         dev = true,
         -- config = function()
@@ -43,7 +43,7 @@ return {
         "nvim-treesitter/playground",
         cmd = { "TSPlayground", "TSPlay" }, -- lazy loads on these commands
     },
-    { "ThePrimeagen/harpoon" },
+    -- { "ThePrimeagen/harpoon" },
     { "tpope/vim-fugitive" },
     {
         "folke/which-key.nvim",
@@ -104,8 +104,14 @@ return {
 
     -- LSP Support
     { 'neovim/nvim-lspconfig' }, -- Required
-    { 'jose-elias-alvarez/null-ls.nvim' }, -- Null-ls
-    { 'jay-babu/mason-null-ls.nvim' }, -- Null-ls mason bridge
+		{
+    	"jay-babu/mason-null-ls.nvim",
+    	event = { "BufReadPre", "BufNewFile" },
+    	dependencies = {
+      	"williamboman/mason.nvim",
+      	"jose-elias-alvarez/null-ls.nvim",
+    	},
+		},
     { 'williamboman/mason.nvim' }, -- Optional
     { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
@@ -149,7 +155,54 @@ return {
     -- Lush
     { "rktjmp/lush.nvim" },
 
-		-- Copilor
-		{ "github/copilot.vim" },
+		-- Copilot
+		{ "zbirenbaum/copilot.lua" },
+		{ "gptlang/CopilotChat.nvim" },
+
+		-- Silicon Code Screenshots
+		{
+			"michaelrommel/nvim-silicon",
+			lazy = true,
+			cmd = "Silicon",
+			config = function()
+				require("silicon").setup({
+					-- Configuration here, or leave empty to use defaults
+					font = "CaskaydiaCove Nerd Font Mono=22",
+					to_clipboard=true,
+					tab_width=2,
+					theme='rose-pine',
+					-- background='#b4637a', -- pink
+					-- background='#286983', -- green
+					background='#fff0', -- green
+					language = function()
+						return vim.bo.filetype
+					end,
+					-- line_offset = function(args)
+					-- 	return args.line1
+					-- end,
+					window_title = function()
+						return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
+					end,
+				})
+			end
+		},
+
+		-- Love2D
+		{
+  		"S1M0N38/love2d.nvim",
+			cmd = "LoveRun",
+
+			-- lazy = true,
+			-- ft = 'lua',
+  		opts = {
+				path_to_love_bin = "/Applications/love.app/Contents/MacOS/love",
+				-- restart_on_save = true,
+			},
+  		keys = {
+    		{ "<leader>v", desc = "LÖVE" },
+    		{ "<leader>vv", "<cmd>LoveRun<cr>", desc = "Run LÖVE" },
+    		{ "<leader>vs", "<cmd>LoveStop<cr>", desc = "Stop LÖVE" },
+  		},
+		},
 
 }

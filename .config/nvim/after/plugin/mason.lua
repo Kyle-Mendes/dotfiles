@@ -3,8 +3,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("mason").setup()
 require("mason-null-ls").setup({
     ensure_installed = {
-        -- 'eslint_d',
-        'prettier_d',
+        'eslint_d',
+        'prettierd',
+        'stylua'
     },
     automatic_installation = false,
     automatic_setup = true, -- Recommended, but optional
@@ -12,6 +13,7 @@ require("mason-null-ls").setup({
 require("null-ls").setup({
     sources = {
         -- Anything not supported by mason.
+        require("null-ls").builtins.formatting.prettierd,
     },
     -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client, bufnr)
@@ -23,11 +25,11 @@ require("null-ls").setup({
                 callback = function()
                     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
                     -- vim.lsp.buf.formatting_sync()
-                    vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 200 })
+                    vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
                 end,
             })
         end
     end,
 })
 
-require 'mason-null-ls'.setup_handlers() -- If `automatic_setup` is true.
+require 'mason-null-ls'.setup() -- If `automatic_setup` is true.
