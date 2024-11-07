@@ -39,7 +39,7 @@ lsp.on_attach(function(client, bufnr) -- Only apply to the buffer if it has LSP
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = "*.cpp,*.h,*.svelte,*.c",
+        pattern = "*.cpp,*.h,*.svelte,*.c,*.odin",
         callback = function() vim.lsp.buf.format({ timeout_ms = 100 }) end
     })
 

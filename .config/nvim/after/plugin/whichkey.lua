@@ -1,5 +1,6 @@
 local wk = require("which-key")
 
+-- Leader Keys
 wk.register({
 	f = {
 		name = "file",
@@ -19,7 +20,7 @@ wk.register({
     c = {
       c = {"<cmd>GH<cr>", 'Copy Link GH for selection'}
     },
-		z = {"cmd>lua vim.diagnostic.setqflist()<cr>", "Set quickfix list"},
+		z = {"<cmd>lua vim.diagnostic.setqflist()<cr>", "Set quickfix list"},
   },
   p = {
     v = "open file explorer",
@@ -30,6 +31,10 @@ wk.register({
       n = "LSP - Rename",
     },
   },
+
+	M = {"<cmd>Grapple tag<cr>", "Grapple tag"},
+	m = {"<cmd>Grapple toggle_tags<cr>", "Grapple toggle_tags"}
+
 }, { prefix = "<leader>"} )
 
 wk.register({

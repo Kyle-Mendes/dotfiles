@@ -43,7 +43,7 @@ return {
         "nvim-treesitter/playground",
         cmd = { "TSPlayground", "TSPlay" }, -- lazy loads on these commands
     },
-    -- { "ThePrimeagen/harpoon" },
+    { "cbochs/grapple.nvim" },
     { "tpope/vim-fugitive" },
     {
         "folke/which-key.nvim",

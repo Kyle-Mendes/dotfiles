@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd $HOME
+DOTFILES=$HOME/dotfiles
 
 if [[ $(uname) == "Darwin" ]]; then
   if ! which brew; then
@@ -14,6 +15,9 @@ if [[ $(uname) == "Darwin" ]]; then
     httpie \
     tree \
     ripgrep
+
+  mkdir ${XDG_CONFIG_HOME}/aerospace
+  ln -s "$DOTFILES/.config/aerospace" "${XDG_CONFIG_HOME}/aerospace"
 else
   sudo add-apt-repository -y ppa:neovim-ppa/unstable
   sudo apt update
@@ -37,7 +41,6 @@ if [[ ! -e $OMZ_CUSTOM/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions $OMZ_CUSTOM/plugins/zsh-autosuggestions
 fi
 
-DOTFILES=$HOME/dotfiles
 
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/.zshprofile" "$HOME/.zshprofile"
