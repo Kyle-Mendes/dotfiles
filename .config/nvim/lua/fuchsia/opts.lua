@@ -37,3 +37,6 @@ o.showtabline = 2
 
 g.highlighturl_enabled = true
 g.autoformat_enabled = true
+
+-- views can only be fully collapsed with the global statusline
+o.laststatus = 3

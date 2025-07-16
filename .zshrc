@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Nvim Config Dir
 export XDG_CONFIG_HOME="$HOME/.config"
 alias nvim-config="nvim ~/.config/nvim/init.vim"
-# alias love=/Applications/love.app/Contents/MacOS/love
+alias love=/Applications/love.app/Contents/MacOS/love
 
 export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 
@@ -18,6 +18,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:/Users/kylemendes/Projects/discord/discord/.local/bin"
+export PATH="$PATH:/usr/local/go/bin" # Adding Go
 # export PATH="$REPO_ROOT/.local/bin:$PATH"
 
 # Custom elixir work
@@ -179,18 +180,13 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8,italic'
 
-alias love="/Applications/love.app/Contents/MacOS/love"
 export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
-export PATH="/Users/kylemendes/Projects/Odin:$PATH"
+# export PATH="/Users/kylemendes/Projects/Odin:$PATH"
 
+
+# Add direnv hook
+eval "$(direnv hook zsh)"
 
 # This has to be last
 eval "$(zoxide init zsh --cmd cd)"
 
-#compdef clyde
-_clyde() {
-  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLYDE_COMPLETE=complete-zsh  clyde)
-}
-if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
-  compdef _clyde clyde
-fi

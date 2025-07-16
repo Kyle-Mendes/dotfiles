@@ -187,22 +187,25 @@ return {
 			end
 		},
 
-		-- Love2D
+		-- Avante
 		{
-  		"S1M0N38/love2d.nvim",
-			cmd = "LoveRun",
-
-			-- lazy = true,
-			-- ft = 'lua',
+  		"yetone/avante.nvim",
+  		event = "VeryLazy",
+  		lazy = false,
+  		version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
   		opts = {
-				path_to_love_bin = "/Applications/love.app/Contents/MacOS/love",
-				-- restart_on_save = true,
-			},
-  		keys = {
-    		{ "<leader>v", desc = "LÖVE" },
-    		{ "<leader>vv", "<cmd>LoveRun<cr>", desc = "Run LÖVE" },
-    		{ "<leader>vs", "<cmd>LoveStop<cr>", desc = "Stop LÖVE" },
+    		-- add any opts here
   		},
-		},
+  		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  		build = "make",
+			dependencies = {
+    		"stevearc/dressing.nvim",
+    		"nvim-lua/plenary.nvim",
+    		"MunifTanjim/nui.nvim",
+    		--- The below dependencies are optional,
+    		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+				"nvim-tree/nvim-web-devicons",
+			}
+		}
 
 }
