@@ -24,8 +24,8 @@ else
   sudo apt install -y \
     neovim \
     httpie \
-    tree
-  nix-env --install ripgrep
+    tree   \
+    ripgrep
 fi
 
 if ! which starship; then
