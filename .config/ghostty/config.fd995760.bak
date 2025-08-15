@@ -1,0 +1,25 @@
+bold-is-bright = true
+
+# theme = rose-pine-moon
+theme = catppuccin-mocha
+macos-titlebar-style = hidden
+
+font-family = Maple Mono 
+font-size = 14
+font-variation = wght=600
+font-variation-bold = wght=700
+
+font-feature = zero
+font-feature = calt
+font-feature = ss01
+
+background-blur-radius = 20
+background-opacity = 0.95
+unfocused-split-opacity = 0.7
+
+
+# Keybinds
+keybind = super+alt+l=goto_split:right
+keybind = super+alt+h=goto_split:left
+keybind = super+alt+j=goto_split:bottom
+keybind = super+alt+k=goto_split:top
