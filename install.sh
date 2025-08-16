@@ -16,8 +16,11 @@ if [[ $(uname) == "Darwin" ]]; then
     tree \
     ripgrep
 
+  brew install --cask font-maple-mono-nf
+
   mkdir ${XDG_CONFIG_HOME}/aerospace
   ln -s "$DOTFILES/.config/aerospace" "${XDG_CONFIG_HOME}/aerospace"
+  brew install --cask nikitabobko/tap/aerospace
 else
   sudo add-apt-repository -y ppa:neovim-ppa/unstable
   sudo apt update
@@ -47,8 +50,9 @@ ln -sf "$DOTFILES/.zshprofile" "$HOME/.zshprofile"
 ln -sf "$DOTFILES/.clangd" "$HOME/.clangd"
 ln -sf "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
 ln -sf "$DOTFILES/.config/kitty" "$HOME/.config/kitty"
-ln -sf "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
+ln -sf "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 
+ln -sf "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$DOTFILES/zls.json" "$HOME/zls.json"
 
-# source ~/.zshrc
+source ~/.zshrc
