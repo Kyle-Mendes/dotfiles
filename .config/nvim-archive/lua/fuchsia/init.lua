@@ -4,6 +4,7 @@ require("fuchsia.lazy")
 require("fuchsia.remap")
 require("fuchsia.opts")
 
+-- TODO make better
 require("lazy").setup("fuchsia.plugins", {
 	dev = {
 		path = "~/Projects/neovim",
