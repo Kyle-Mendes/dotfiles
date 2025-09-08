@@ -4,38 +4,37 @@ return {
 		config = function()
 			-- Format on Save
 			vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function()
-          vim.lsp.buf.format({ async = false })
-        end,
-      })
+				pattern = "*",
+				callback = function()
+					vim.lsp.buf.format({ async = false })
+				end,
+			})
 			-- Language Server Configs
-			require'lspconfig'.basedpyright.setup({
+			require 'lspconfig'.basedpyright.setup({
 				settings = {
 					basedpyright = {
 						analysis = {
 							extraPaths = {
- 								'~/.virtualenvs/discord_api/lib/python3.7/site-packages',
-          			'/Users/pink/Projects/discord/discord/discord_common/py'
+								'~/.virtualenvs/discord_api/lib/python3.11/site-packages',
+								'/Users/pink/Projects/discord/discord/discord_common/py'
 							}
 						}
 					}
 				}
 			})
 
-			require'lspconfig'.eslint.setup({
+			require 'lspconfig'.eslint.setup({
 				on_attach = function(client, buffer)
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = buffer,
 						command = "EslintFixAll"
 					})
 				end
-
 			})
 		end
 
-},
-{ "mason-org/mason.nvim", opts = {},
+	},
+	{ "mason-org/mason.nvim", opts = {},
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
@@ -53,7 +52,7 @@ return {
 					'lua-language-server',
 
 					-- js/ts
-					'deno',
+					-- 'deno',
 					'eslint_d',
 					'prettierd',
 					'typescript-language-server',
@@ -73,5 +72,27 @@ return {
 				}
 			})
 		end
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				-- lua = { "stylua" },
+				-- -- Conform will run multiple formatters sequentially
+				-- python = { "isort", "black" },
+				-- -- You can customize some of the format options for the filetype (:help conform.format)
+				-- rust = { "rustfmt", lsp_format = "fallback" },
+				-- Conform will run the first available formatter
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+			},
+			format_on_save = {
+				-- These options will be passed to conform.format()
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			},
+		}
 	},
 }

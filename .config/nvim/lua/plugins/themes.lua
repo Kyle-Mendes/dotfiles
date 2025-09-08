@@ -14,11 +14,28 @@ return {
 		lazy = false,
 		priority = priorities.THEMES,
 		name = "vague",
+		-- config = function()
+		-- 	require("vague").setup({
+		--     	-- optional configuration here
+		--   	})
+		--   	vim.cmd("colorscheme vague")
+		-- end
+	},
+	{
+		"rijulpaul/nightblossom.nvim",
+		name = "nightblossom",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require("vague").setup({
-      	-- optional configuration here
-    	})
-    	vim.cmd("colorscheme vague")
-		end
+			require('nightblossom').setup({
+				variant = "pastel",
+				overrides = {
+					colors = {
+						bg = "#23202b"
+					}
+				}
+			})
+			vim.cmd("colorscheme nightblossom-pastel")
+		end,
 	}
 }

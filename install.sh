@@ -14,7 +14,8 @@ if [[ $(uname) == "Darwin" ]]; then
     neovim \
     httpie \
     tree \
-    ripgrep
+    ripgrep \
+		zoxide
 
   brew install --cask font-maple-mono-nf
 

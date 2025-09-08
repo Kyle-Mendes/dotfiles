@@ -19,6 +19,7 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:/Users/kylemendes/Projects/discord/discord/.local/bin"
 export PATH="$PATH:/usr/local/go/bin" # Adding Go
+export PATH="$PATH:/$HOME/.cargo/env"
 # export PATH="$REPO_ROOT/.local/bin:$PATH"
 
 # Custom elixir work
@@ -119,8 +120,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions history-substring-search)
-
 source $ZSH/oh-my-zsh.sh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
@@ -185,8 +186,17 @@ export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
 
 
 # Add direnv hook
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # This has to be last
 eval "$(zoxide init zsh --cmd cd)"
 
+
+export PATH="/Users/pink/Projects/discord/discord/.local/bin:$PATH"
+#compdef clyde
+_clyde() {
+  eval "$(_CLYDE_COMPLETE=zsh_source clyde)"
+}
+if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
+  compdef _clyde clyde
+fi
