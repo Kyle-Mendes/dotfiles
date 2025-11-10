@@ -18,7 +18,15 @@ wk.add({
 
 	{ "fw",           function() Snacks.picker.grep() end,                         desc = "Grep" },
 	{ "<leader>fo",   function() Snacks.picker.recent() end,                       desc = "Recent Files" },
+	{ "<leader>fr",   function() Snacks.picker.resume() end,                       desc = "Picker Resume" },
+	{ "<leader>s/",   function() Snacks.picker.search_history() end,               desc = "Search History" },
+	{ "<leader>sc",   function() Snacks.picker.command_history() end,              desc = "Command History" },
 	{ "<leader>su",   function() Snacks.picker.undo() end,                         desc = "Undo History" },
+	-- GitHub
+	{ "<leader>gi",   function() Snacks.picker.gh_issue() end,                     desc = "GitHub Issues (open)" },
+	{ "<leader>gI",   function() Snacks.picker.gh_issue({ state = "all" }) end,    desc = "GitHub Issues (all)" },
+	{ "<leader>gp",   function() Snacks.picker.gh_pr() end,                        desc = "GitHub Pull Requests (open)" },
+	{ "<leader>gP",   function() Snacks.picker.gh_pr({ state = "all" }) end,       desc = "GitHub Pull Requests (all)" },
 
 	-- LSP Commands
 	{ "gd",           function() vim.lsp.buf.implementation() end,                 desc = "Goto Definition" },

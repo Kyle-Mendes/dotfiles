@@ -1,6 +1,8 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		-- We have another plugin for this
+		opts = { diagnostics = { virtual_text = false } },
 		config = function()
 			-- Format on Save
 			vim.api.nvim_create_autocmd("BufWritePre", {
@@ -66,7 +68,6 @@ return {
 					--rust
 					'rustfmt',
 
-
 					-- etc
 					'stylelint',
 				}
@@ -95,4 +96,8 @@ return {
 			},
 		}
 	},
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	}
 }
