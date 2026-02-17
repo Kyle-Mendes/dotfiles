@@ -4,6 +4,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 . /Users/$USER/.nix-profile/etc/profile.d/nix.sh
 
+# Source our env variables
+if [ -f "$HOME/.env.local" ]; then
+    source "$HOME/.env.local"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -11,12 +16,13 @@ export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 alias nvim-config="nvim ~/.config/nvim/init.vim"
 alias love=/Applications/love.app/Contents/MacOS/love
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
 
 export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+# export ANDROID_HOME="$HOME/Library/Android/sdk"
+# export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:/Users/kylemendes/Projects/discord/discord/.local/bin"
 export PATH="$PATH:/usr/local/go/bin" # Adding Go
 export PATH="$PATH:/$HOME/.cargo/env"
@@ -88,10 +94,10 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -119,7 +125,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions history-substring-search)
+plugins=(git history-substring-search)
+# plugins=(git zsh-autosuggestions history-substring-search)
 source $ZSH/oh-my-zsh.sh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -176,7 +183,7 @@ fi
 [ -s "/Users/kylemendes/.bun/_bun" ] && source "/Users/kylemendes/.bun/_bun"
 
 # Bun
-export BUN_INSTALL="/Users/kylemendes/.bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#e657a8,italic'

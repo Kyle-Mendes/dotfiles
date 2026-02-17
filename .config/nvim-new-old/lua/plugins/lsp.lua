@@ -70,7 +70,6 @@ return {
 
 					-- etc
 					'stylelint',
-					'copilot-language-server',
 				}
 			})
 		end
@@ -97,8 +96,8 @@ return {
 			},
 		}
 	},
-	-- {
-	-- 	"j-hui/fidget.nvim",
-	-- 	opts = {},
-	-- }
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	}
 }

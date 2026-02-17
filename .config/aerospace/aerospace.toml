@@ -217,9 +217,41 @@ check-further-callbacks = true
 run = 'layout tiling'
 
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = '^Configuration Errors'
+check-further-callbacks = true 
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = '^Software Update'
+check-further-callbacks = true 
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 check-further-callbacks = true 
 run = 'layout tiling'
+
+# Zen
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+check-further-callbacks = true 
+run = 'layout tiling'
+
+# PIP Zen Windows
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+if.window-title-regex-substring = '^Picture-in-Picture'
+check-further-callbacks = true 
+run = 'layout floating'
+
+# PIP Zen Windows
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+if.window-title-regex-substring = '^Extension'
+check-further-callbacks = true 
+run = 'layout floating'
 
 # Floating Arc Windows
 [[on-window-detected]]
@@ -231,7 +263,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.hnc.DiscordCanary'
 check-further-callbacks = true
-run = ['layout floating', 'move-node-to-workspace 2']
+run = ['layout floating', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'

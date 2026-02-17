@@ -11,7 +11,6 @@ if [[ $(uname) == "Darwin" ]]; then
   fi
 
   brew install \
-    neovim \
     httpie \
     tree \
     ripgrep \
@@ -23,14 +22,16 @@ if [[ $(uname) == "Darwin" ]]; then
   ln -s "$DOTFILES/.config/aerospace" "${XDG_CONFIG_HOME}/aerospace"
   brew install --cask nikitabobko/tap/aerospace
 else
-  sudo add-apt-repository -y ppa:neovim-ppa/unstable
   sudo apt update
   sudo apt install -y \
-    neovim \
     httpie \
     tree   \
     ripgrep
 fi
+
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
+chmod 755 nvim-linux-x86_64.appimage
+sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 
 if ! which starship; then
   sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f

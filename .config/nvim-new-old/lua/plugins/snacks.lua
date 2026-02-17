@@ -36,7 +36,7 @@ return {
 				win = {
 					input = {
 						keys = {
-							-- ["<Esc>"] = { "cancel", mode = { "n" } },
+							["<Esc>"] = { "cancel", mode = { "n" } },
 							["<C-]>"] = { "history_forward", mode = { "i", "n" } },
 							["<C-[>"] = { "history_back", mode = { "i", "n" } }
 						}

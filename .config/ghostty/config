@@ -4,7 +4,7 @@ bold-is-bright = true
 theme = catppuccin-mocha
 macos-titlebar-style = hidden
 
-font-family = Maple Mono 
+font-family = Maple Mono NF
 font-size = 14
 font-variation = wght=600
 font-variation-bold = wght=700
