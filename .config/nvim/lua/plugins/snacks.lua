@@ -20,7 +20,12 @@ return {
 					min_size = 30,
 				}
 			},
-			explorer = { enabled = false },
+			explorer = {
+				enabled = true,
+				replace_netrw = true,
+				trash = true,
+				git_status = true,
+			},
 			gh = { enabled = true },
 			git = { enabled = false },
 			gitbrowse = { enabled = false },

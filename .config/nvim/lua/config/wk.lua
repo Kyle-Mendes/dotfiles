@@ -15,6 +15,7 @@ wk.add({
 	{ "<leader>ssde", function() Snacks.dim.enable() end,                          desc = "Enable Dim" },
 	{ "<leader>.",    function() Snacks.scratch() end,                             desc = "Toggle Scratch Buffer" },
 	{ "<leader>S",    function() Snacks.scratch.select() end,                      desc = "Select Scratch Buffer" },
+	{ "<leader>se",   function() Snacks.explorer() end,                            desc = "Open Snacks Explorer" },
 
 	{ "fw",           function() Snacks.picker.grep() end,                         desc = "Grep" },
 	{ "<leader>fo",   function() Snacks.picker.recent() end,                       desc = "Recent Files" },

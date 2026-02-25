@@ -14,7 +14,8 @@ if [[ $(uname) == "Darwin" ]]; then
     httpie \
     tree \
     ripgrep \
-		zoxide
+		zoxide \
+		fd
 
   brew install --cask font-maple-mono-nf
 
@@ -26,7 +27,8 @@ else
   sudo apt install -y \
     httpie \
     tree   \
-    ripgrep
+    ripgrep \
+		fd
 fi
 
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
@@ -57,4 +59,4 @@ ln -sf "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
 ln -sf "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$DOTFILES/zls.json" "$HOME/zls.json"
 
-source ~/.zshrc
+source "$HOME/.zshrc"
