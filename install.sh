@@ -29,6 +29,9 @@ else
     tree   \
     ripgrep \
 		fd
+
+	# We're on coder, set the DOTFILES accordingly
+	DOTFILES=$HOME/.config/coderv2/dotfiles
 fi
 
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
@@ -48,6 +51,8 @@ if [[ ! -e $OMZ_CUSTOM/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions $OMZ_CUSTOM/plugins/zsh-autosuggestions
 fi
 
+git config --global alias.co checkout
+git config --global alias.pushu push origin -u HEAD
 
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/.zshprofile" "$HOME/.zshprofile"

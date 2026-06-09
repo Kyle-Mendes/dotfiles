@@ -81,7 +81,7 @@ return {
 			formatters_by_ft = {
 				-- lua = { "stylua" },
 				-- -- Conform will run multiple formatters sequentially
-				-- python = { "isort", "black" },
+				python = { "ruff_format", "ruff_organize_imports" },
 				-- -- You can customize some of the format options for the filetype (:help conform.format)
 				-- rust = { "rustfmt", lsp_format = "fallback" },
 				-- Conform will run the first available formatter
@@ -89,6 +89,7 @@ return {
 				typescript = { "prettierd", "prettier", stop_after_first = true },
 				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				["*"] = { "trim_whitespace" }
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()
@@ -97,8 +98,8 @@ return {
 			},
 		}
 	},
-	-- {
-	-- 	"j-hui/fidget.nvim",
-	-- 	opts = {},
-	-- }
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	}
 }

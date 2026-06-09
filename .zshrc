@@ -17,6 +17,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 alias nvim-config="nvim ~/.config/nvim/init.vim"
 alias love=/Applications/love.app/Contents/MacOS/love
 alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+alias m3u8='echo "Enter m3u8 link to download by ffmpeg:";read link;echo "Enter output filename:";read filename;echo "Starting download...";ffmpeg -i "$link" -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 $filename.mp4 && echo "\033[0;32m Download completed successfully! File saved to: $(pwd)/$filename.mp4"'
 
 export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 

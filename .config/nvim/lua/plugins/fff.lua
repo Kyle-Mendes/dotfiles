@@ -1,7 +1,11 @@
 return {
 	{
 		"dmtrKovalenko/fff.nvim",
-		build = "cargo build --release",
+		build = function()
+			-- this will download prebuild binary or try to use existing rustup toolchain to build from source
+			-- (if you are using lazy you can use gb for rebuilding a plugin if needed)
+			require("fff.download").download_or_build_binary()
+		end,
 		-- or if you are using nixos
 		-- build = "nix run .#release",
 		opts = {
@@ -14,6 +18,7 @@ return {
 				width = 0.8,            -- Window width
 			},
 		},
+		lazy = false,
 		-- config = function()
 		-- 	require("fff").setup({
 		-- 		prompt = "🌸",
@@ -31,7 +36,7 @@ return {
 				desc = "Open file picker",
 			},
 			{
-				"fg",                          -- try it if you didn't it is a banger keybinding for a picker
+				"fg",
 				function()
 					require("fff").find_in_git_root() -- or find_in_git_root() if you only want git files
 				end,
