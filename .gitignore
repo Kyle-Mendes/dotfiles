@@ -1,2 +1,8 @@
 .DS_Store
+.config/tmux/.tmux_prompt_history
+
+# herdr runtime state (dir is symlinked into $HOME/.config/herdr)
+.config/herdr/*.sock
+.config/herdr/*.log
+.config/herdr/session.json
 

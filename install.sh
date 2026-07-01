@@ -15,7 +15,9 @@ if [[ $(uname) == "Darwin" ]]; then
     tree \
     ripgrep \
 		zoxide \
-		fd
+		tmux \
+		fd \
+		herdr
 
   brew install --cask font-maple-mono-nf
 
@@ -28,10 +30,16 @@ else
     httpie \
     tree   \
     ripgrep \
+		tmux \
 		fd
 
 	# We're on coder, set the DOTFILES accordingly
 	DOTFILES=$HOME/.config/coderv2/dotfiles
+
+	# herdr isn't packaged for apt; use the official installer.
+	if ! which herdr; then
+		curl -fsSL https://herdr.dev/install.sh | sh
+	fi
 fi
 
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
@@ -60,6 +68,8 @@ ln -sf "$DOTFILES/.clangd" "$HOME/.clangd"
 ln -sf "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
 ln -sf "$DOTFILES/.config/kitty" "$HOME/.config/kitty"
 ln -sf "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
+ln -sf "$DOTFILES/.config/tmux" "$HOME/.config/tmux"
+ln -sf "$DOTFILES/.config/herdr" "$HOME/.config/herdr"
 
 ln -sf "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$DOTFILES/zls.json" "$HOME/zls.json"
