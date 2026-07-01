@@ -206,5 +206,9 @@ if [[ "$(basename -- ${(%):-%x})" != "_clyde" ]]; then
   compdef _clyde clyde
 fi
 
+# Silence zoxide's init-order doctor. It false-positives in nested/login
+# shells (tmux, tool subshells) even though init is correctly last below.
+export _ZO_DOCTOR=0
+
 # This has to be last
 eval "$(zoxide init zsh --cmd cd)"
