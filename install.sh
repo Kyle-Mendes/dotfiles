@@ -46,6 +46,10 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x
 chmod 755 nvim-linux-x86_64.appimage
 sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 
+if ! which claude; then
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
+
 if ! which starship; then
   sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
 fi
