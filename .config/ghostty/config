@@ -23,4 +23,10 @@ keybind = super+alt+l=goto_split:right
 keybind = super+alt+h=goto_split:left
 keybind = super+alt+j=goto_split:bottom
 keybind = super+alt+k=goto_split:top
-keybind = shift+enter=text:\n
+# Shift+Enter -> newline in Claude Code:
+# Do NOT bind shift+enter=text:\n here. That injects a raw LF, which tmux
+# collapses back into a plain Enter, so it can't survive the tmux layer.
+# Instead we leave Shift+Enter unbound so Ghostty emits the kitty keyboard
+# protocol sequence (\x1b[13;2u), which tmux forwards (extended-keys on +
+# extended-keys-format csi-u) and Claude Code decodes as a newline. Works in
+# bare Ghostty, through tmux, and through herdr.
