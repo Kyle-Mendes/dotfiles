@@ -1,5 +1,13 @@
 .DS_Store
 .config/tmux/.tmux_prompt_history
+*.swp
+
+# stray nested symlinks from ln -sf mis-linking onto an existing symlink-to-dir
+# (fixed in install.sh via ln -sfn, but guard against recurrence)
+.config/*/nvim
+.config/*/kitty
+.config/*/ghostty
+.config/*/tmux
 
 # herdr runtime state (dir is symlinked into $HOME/.config/herdr)
 .config/herdr/*.sock

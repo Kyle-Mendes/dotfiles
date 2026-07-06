@@ -46,10 +46,6 @@ curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x
 chmod 755 nvim-linux-x86_64.appimage
 sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 
-if ! which claude; then
-  curl -fsSL https://claude.ai/install.sh | bash
-fi
-
 if ! which starship; then
   sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
 fi
@@ -69,13 +65,27 @@ git config --global alias.pushu push origin -u HEAD
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/.zshprofile" "$HOME/.zshprofile"
 ln -sf "$DOTFILES/.clangd" "$HOME/.clangd"
-ln -sf "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
-ln -sf "$DOTFILES/.config/kitty" "$HOME/.config/kitty"
-ln -sf "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
-ln -sf "$DOTFILES/.config/tmux" "$HOME/.config/tmux"
-ln -sf "$DOTFILES/.config/herdr" "$HOME/.config/herdr"
+# -n so an existing symlink-to-dir is replaced, not dereferenced
+# (plain -sf follows it and nests the new link inside the target).
+ln -sfn "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
+ln -sfn "$DOTFILES/.config/kitty" "$HOME/.config/kitty"
+ln -sfn "$DOTFILES/.config/ghostty" "$HOME/.config/ghostty"
+ln -sfn "$DOTFILES/.config/tmux" "$HOME/.config/tmux"
+ln -sfn "$DOTFILES/.config/herdr" "$HOME/.config/herdr"
 
 ln -sf "$DOTFILES/.config/starship.toml" "$HOME/.config/starship.toml"
 ln -sf "$DOTFILES/zls.json" "$HOME/zls.json"
+
+# agents: private repo with pi/claude config, context, and their installers.
+AGENTS_REPO="git@github.com:Kyle-Mendes/agents.git"
+AGENTS_DIR="$HOME/agents"
+
+if [[ -d "$AGENTS_DIR/.git" ]]; then
+  git -C "$AGENTS_DIR" pull --ff-only
+else
+  git clone "$AGENTS_REPO" "$AGENTS_DIR"
+fi
+
+"$AGENTS_DIR/install.sh"
 
 source "$HOME/.zshrc"

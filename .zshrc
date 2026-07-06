@@ -25,7 +25,7 @@ export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 # export ANDROID_HOME="$HOME/Library/Android/sdk"
 # export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$PATH:/Users/kylemendes/Projects/discord/discord/.local/bin"
+# Discord's .local/bin is set up in the Node / direnv block near the end.
 export PATH="$PATH:/usr/local/go/bin" # Adding Go
 export PATH="$PATH:/$HOME/.cargo/env"
 # export PATH="$REPO_ROOT/.local/bin:$PATH"
@@ -194,10 +194,22 @@ export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
 # export PATH="/Users/kylemendes/Projects/Odin:$PATH"
 
 
-# Add direnv hook
-# eval "$(direnv hook zsh)"
+# --- Node & Discord env -------------------------------------------------
+# Discord's in-repo binstubs (clyde, gh, ffmpeg, nix `node`, etc.). Kept on the
+# global PATH so the tools are available everywhere. $HOME keeps it portable.
+export PATH="$HOME/Projects/discord/discord/.local/bin:$PATH"
 
-export PATH="/Users/pink/Projects/discord/discord/.local/bin:$PATH"
+# fnm provides the default `node` for global/agentic tooling (e.g. pi). Loaded
+# AFTER the line above so fnm's node is the global default; direnv (below)
+# front-loads Discord's nix node inside the repo so it wins there.
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# direnv activates per-directory environments. Discord ships an .envrc that
+# `PATH_add`s .local/bin (nix node + tools) when you're in the repo, so its
+# node beats fnm's there. Run `direnv allow` once per checkout/worktree.
+eval "$(direnv hook zsh)"
+# ------------------------------------------------------------------------
+
 #compdef clyde
 _clyde() {
   eval "$(_CLYDE_COMPLETE=zsh_source clyde)"
@@ -212,3 +224,6 @@ export _ZO_DOCTOR=0
 
 # This has to be last
 eval "$(zoxide init zsh --cmd cd)"
+
+# Pi
+export PATH="/Users/pink/.local/share/fnm/node-versions/v24.18.0/installation/bin:$PATH"
