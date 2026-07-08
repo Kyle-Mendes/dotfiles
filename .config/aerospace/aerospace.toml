@@ -98,10 +98,10 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-cmd-h = 'focus left'
+alt-cmd-j = 'focus down'
+alt-cmd-k = 'focus up'
+alt-cmd-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -263,7 +263,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.hnc.DiscordCanary'
 check-further-callbacks = true
-run = ['layout floating', 'move-node-to-workspace 3']
+run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
